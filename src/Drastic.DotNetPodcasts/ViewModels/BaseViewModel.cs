@@ -6,7 +6,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using DrasticMedia.Podcast.Library;
 
-namespace Drastic.DotNetPodcasts.ViewModels
+namespace Drastic.DotNetPodcasts
 {
     /// <summary>
     /// Base View Model.
@@ -27,6 +27,7 @@ namespace Drastic.DotNetPodcasts.ViewModels
             this.ErrorHandler = services.GetService(typeof(IErrorHandlerService)) as IErrorHandlerService ?? throw new NullReferenceException(nameof(IErrorHandlerService));
             this.Dispatcher = services.GetService(typeof(IAppDispatcher)) as IAppDispatcher ?? throw new NullReferenceException(nameof(IAppDispatcher));
             this.Library = services.GetService(typeof(PodcastLibrary)) as PodcastLibrary ?? throw new NullReferenceException(nameof(PodcastLibrary));
+            this.AddOrUpdatePodcastFromUriCommand = new AsyncCommand<Uri>(this.Library.AddOrUpdatePodcastFromUri, this.IsValidUri, this.ErrorHandler);
         }
 
         /// <inheritdoc/>
@@ -49,6 +50,11 @@ namespace Drastic.DotNetPodcasts.ViewModels
             get { return this.title; }
             set { this.SetProperty(ref this.title, value); }
         }
+
+        /// <summary>
+        /// Gets the AddOrUpdatePodcastFromUri Command.
+        /// </summary>
+        public AsyncCommand<Uri> AddOrUpdatePodcastFromUriCommand { get; private set; }
 
         /// <summary>
         /// Gets the <see cref="PodcastLibrary"/>.
@@ -118,6 +124,17 @@ namespace Drastic.DotNetPodcasts.ViewModels
 
                 changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
             });
+        }
+
+        private bool IsValidUri(Uri? uri)
+        {
+            // TODO: Test URI to validate if it's actually a podcast feed.
+            if (uri is null)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
