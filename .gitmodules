@@ -1,0 +1,3 @@
+[submodule "external/DrasticMedia"]
+	path = external/DrasticMedia
+	url = git@github.com:drasticactions/DrasticMedia.git

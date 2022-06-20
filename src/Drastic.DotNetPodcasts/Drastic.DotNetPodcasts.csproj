@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<WarningAsError>nullable</WarningAsError>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\..\external\DrasticMedia\src\DrasticMedia.Core\DrasticMedia.Core.csproj" />
+	  <ProjectReference Include="..\..\external\DrasticMedia\src\DrasticMedia.Podcast\DrasticMedia.Podcast.csproj" />
+	  <ProjectReference Include="..\..\external\DrasticMedia\src\DrasticMedia.SQLite.Database\DrasticMedia.SQLite.Database.csproj" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32620.49
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drastic.DotNetPodcasts", "Drastic.DotNetPodcasts\Drastic.DotNetPodcasts.csproj", "{A5D7CC4F-8CC7-485F-809D-B04A2C65B9DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{3359D0EF-30A9-421F-A8D2-24516CB44894}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrasticMedia.Core", "..\external\DrasticMedia\src\DrasticMedia.Core\DrasticMedia.Core.csproj", "{571B29EF-5AD6-4B97-86FD-7E255C637240}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrasticMedia.Podcast", "..\external\DrasticMedia\src\DrasticMedia.Podcast\DrasticMedia.Podcast.csproj", "{3ECFB8F3-4CA1-4B7C-A736-1A670DBA52A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrasticMedia.SQLite.Database", "..\external\DrasticMedia\src\DrasticMedia.SQLite.Database\DrasticMedia.SQLite.Database.csproj", "{02295F30-7453-4363-808E-F45106172DB3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5D7CC4F-8CC7-485F-809D-B04A2C65B9DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5D7CC4F-8CC7-485F-809D-B04A2C65B9DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5D7CC4F-8CC7-485F-809D-B04A2C65B9DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5D7CC4F-8CC7-485F-809D-B04A2C65B9DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{571B29EF-5AD6-4B97-86FD-7E255C637240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{571B29EF-5AD6-4B97-86FD-7E255C637240}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{571B29EF-5AD6-4B97-86FD-7E255C637240}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{571B29EF-5AD6-4B97-86FD-7E255C637240}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ECFB8F3-4CA1-4B7C-A736-1A670DBA52A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ECFB8F3-4CA1-4B7C-A736-1A670DBA52A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ECFB8F3-4CA1-4B7C-A736-1A670DBA52A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ECFB8F3-4CA1-4B7C-A736-1A670DBA52A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02295F30-7453-4363-808E-F45106172DB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02295F30-7453-4363-808E-F45106172DB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02295F30-7453-4363-808E-F45106172DB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02295F30-7453-4363-808E-F45106172DB3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{571B29EF-5AD6-4B97-86FD-7E255C637240} = {3359D0EF-30A9-421F-A8D2-24516CB44894}
+		{3ECFB8F3-4CA1-4B7C-A736-1A670DBA52A5} = {3359D0EF-30A9-421F-A8D2-24516CB44894}
+		{02295F30-7453-4363-808E-F45106172DB3} = {3359D0EF-30A9-421F-A8D2-24516CB44894}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B09DA72-813E-4316-8284-8534B1C8915E}
+	EndGlobalSection
+EndGlobal
