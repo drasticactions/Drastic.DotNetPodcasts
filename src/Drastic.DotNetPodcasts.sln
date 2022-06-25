@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrasticMedia.Core", "..\ext
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrasticMedia.Podcast", "..\external\DrasticMedia\src\DrasticMedia.Podcast\DrasticMedia.Podcast.csproj", "{3ECFB8F3-4CA1-4B7C-A736-1A670DBA52A5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrasticMedia.SQLite.Database", "..\external\DrasticMedia\src\DrasticMedia.SQLite.Database\DrasticMedia.SQLite.Database.csproj", "{02295F30-7453-4363-808E-F45106172DB3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,22 +71,6 @@ Global
 		{3ECFB8F3-4CA1-4B7C-A736-1A670DBA52A5}.Release|x64.Build.0 = Release|Any CPU
 		{3ECFB8F3-4CA1-4B7C-A736-1A670DBA52A5}.Release|x86.ActiveCfg = Release|Any CPU
 		{3ECFB8F3-4CA1-4B7C-A736-1A670DBA52A5}.Release|x86.Build.0 = Release|Any CPU
-		{02295F30-7453-4363-808E-F45106172DB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02295F30-7453-4363-808E-F45106172DB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02295F30-7453-4363-808E-F45106172DB3}.Debug|arm64.ActiveCfg = Debug|Any CPU
-		{02295F30-7453-4363-808E-F45106172DB3}.Debug|arm64.Build.0 = Debug|Any CPU
-		{02295F30-7453-4363-808E-F45106172DB3}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{02295F30-7453-4363-808E-F45106172DB3}.Debug|x64.Build.0 = Debug|Any CPU
-		{02295F30-7453-4363-808E-F45106172DB3}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{02295F30-7453-4363-808E-F45106172DB3}.Debug|x86.Build.0 = Debug|Any CPU
-		{02295F30-7453-4363-808E-F45106172DB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02295F30-7453-4363-808E-F45106172DB3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{02295F30-7453-4363-808E-F45106172DB3}.Release|arm64.ActiveCfg = Release|Any CPU
-		{02295F30-7453-4363-808E-F45106172DB3}.Release|arm64.Build.0 = Release|Any CPU
-		{02295F30-7453-4363-808E-F45106172DB3}.Release|x64.ActiveCfg = Release|Any CPU
-		{02295F30-7453-4363-808E-F45106172DB3}.Release|x64.Build.0 = Release|Any CPU
-		{02295F30-7453-4363-808E-F45106172DB3}.Release|x86.ActiveCfg = Release|Any CPU
-		{02295F30-7453-4363-808E-F45106172DB3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,7 +78,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{571B29EF-5AD6-4B97-86FD-7E255C637240} = {3359D0EF-30A9-421F-A8D2-24516CB44894}
 		{3ECFB8F3-4CA1-4B7C-A736-1A670DBA52A5} = {3359D0EF-30A9-421F-A8D2-24516CB44894}
-		{02295F30-7453-4363-808E-F45106172DB3} = {3359D0EF-30A9-421F-A8D2-24516CB44894}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B09DA72-813E-4316-8284-8534B1C8915E}
