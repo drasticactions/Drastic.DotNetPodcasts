@@ -4,6 +4,7 @@
 
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using DrasticMedia.Core.Library;
 using DrasticMedia.Podcast.Library;
 
 namespace Drastic.DotNetPodcasts
@@ -26,7 +27,7 @@ namespace Drastic.DotNetPodcasts
             this.Services = services;
             this.ErrorHandler = services.GetService(typeof(IErrorHandlerService)) as IErrorHandlerService ?? throw new NullReferenceException(nameof(IErrorHandlerService));
             this.Dispatcher = services.GetService(typeof(IAppDispatcher)) as IAppDispatcher ?? throw new NullReferenceException(nameof(IAppDispatcher));
-            this.Library = services.GetService(typeof(PodcastLibrary)) as PodcastLibrary ?? throw new NullReferenceException(nameof(PodcastLibrary));
+            this.Library = services.GetService(typeof(IPodcastLibrary)) as IPodcastLibrary ?? throw new NullReferenceException(nameof(IPodcastLibrary));
             this.AddOrUpdatePodcastFromUriCommand = new AsyncCommand<Uri>(this.Library.AddOrUpdatePodcastFromUri, this.IsValidUri, this.ErrorHandler);
         }
 
@@ -59,7 +60,7 @@ namespace Drastic.DotNetPodcasts
         /// <summary>
         /// Gets the <see cref="PodcastLibrary"/>.
         /// </summary>
-        internal PodcastLibrary Library { get; }
+        internal IPodcastLibrary Library { get; }
 
         /// <summary>
         /// Gets the <see cref="IServiceProvider"/>.
