@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrasticMedia.Core", "..\ext
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrasticMedia.Podcast", "..\external\DrasticMedia\src\DrasticMedia.Podcast\DrasticMedia.Podcast.csproj", "{3ECFB8F3-4CA1-4B7C-A736-1A670DBA52A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drastic.DotNetPodcasts.Test", "Drastic.DotNetPodcasts.Test\Drastic.DotNetPodcasts.Test.csproj", "{FFAE1DAB-E97F-4210-B064-788D34CAD058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drastic.DotNetPodcasts.Test", "Drastic.DotNetPodcasts.Test\Drastic.DotNetPodcasts.Test.csproj", "{FFAE1DAB-E97F-4210-B064-788D34CAD058}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrasticMedia.LiteDB.Database", "..\external\DrasticMedia\src\DrasticMedia.LiteDB.Database\DrasticMedia.LiteDB.Database.csproj", "{6FF2E298-5EA7-4F1B-B1DA-E81B568C28E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrasticMedia.LiteDB.Database", "..\external\DrasticMedia\src\DrasticMedia.LiteDB.Database\DrasticMedia.LiteDB.Database.csproj", "{6FF2E298-5EA7-4F1B-B1DA-E81B568C28E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drastic.DotNetPodcasts.WinUI", "Drastic.DotNetPodcasts.WinUI\Drastic.DotNetPodcasts.WinUI.csproj", "{9D27535F-6379-497D-B2FD-58D4F040DCAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,6 +109,30 @@ Global
 		{6FF2E298-5EA7-4F1B-B1DA-E81B568C28E0}.Release|x64.Build.0 = Release|Any CPU
 		{6FF2E298-5EA7-4F1B-B1DA-E81B568C28E0}.Release|x86.ActiveCfg = Release|Any CPU
 		{6FF2E298-5EA7-4F1B-B1DA-E81B568C28E0}.Release|x86.Build.0 = Release|Any CPU
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Debug|Any CPU.Build.0 = Debug|x64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Debug|Any CPU.Deploy.0 = Debug|x64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Debug|arm64.ActiveCfg = Debug|arm64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Debug|arm64.Build.0 = Debug|arm64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Debug|arm64.Deploy.0 = Debug|arm64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Debug|x64.ActiveCfg = Debug|x64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Debug|x64.Build.0 = Debug|x64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Debug|x64.Deploy.0 = Debug|x64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Debug|x86.ActiveCfg = Debug|x86
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Debug|x86.Build.0 = Debug|x86
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Debug|x86.Deploy.0 = Debug|x86
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Release|Any CPU.ActiveCfg = Release|x64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Release|Any CPU.Build.0 = Release|x64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Release|Any CPU.Deploy.0 = Release|x64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Release|arm64.ActiveCfg = Release|arm64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Release|arm64.Build.0 = Release|arm64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Release|arm64.Deploy.0 = Release|arm64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Release|x64.ActiveCfg = Release|x64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Release|x64.Build.0 = Release|x64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Release|x64.Deploy.0 = Release|x64
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Release|x86.ActiveCfg = Release|x86
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Release|x86.Build.0 = Release|x86
+		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

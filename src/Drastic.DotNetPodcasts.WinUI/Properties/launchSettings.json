@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Drastic.DotNetPodcasts.WinUI (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Drastic.DotNetPodcasts.WinUI (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
