@@ -1,46 +1,49 @@
-﻿// <copyright file="PodcastShowItemListViewModel.cs" company="Drastic Actions">
+﻿// <copyright file="PodcastShowItemViewModel.cs" company="Drastic Actions">
 // Copyright (c) Drastic Actions. All rights reserved.
 // </copyright>
 
-using System.Collections.ObjectModel;
+using System;
 using DrasticMedia.Core.Model;
 
 namespace Drastic.DotNetPodcasts
 {
     /// <summary>
-    /// Podcast Show Item List View Model.
+    /// Podcast Show Item View Model.
     /// </summary>
-    public class PodcastShowItemListViewModel : BaseViewModel
+    public class PodcastShowItemViewModel : BaseViewModel
     {
+        private PodcastShowItem? podcast;
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PodcastShowItemListViewModel"/> class.
+        /// Initializes a new instance of the <see cref="PodcastShowItemViewModel"/> class.
         /// </summary>
         /// <param name="services"><see cref="IServiceProvider"/>/</param>
-        public PodcastShowItemListViewModel(IServiceProvider services)
+        public PodcastShowItemViewModel(IServiceProvider services)
             : base(services)
         {
             this.Library.NewMediaItemAdded += this.Library_NewMediaItemAdded;
             this.Library.UpdateMediaItemAdded += this.Library_UpdateMediaItemAdded;
             this.Library.NewMediaItemError += this.Library_NewMediaItemError;
             this.Library.RemoveMediaItem += this.Library_RemoveMediaItem;
+            this.SelectPodcastCommand = new AsyncCommand<PodcastShowItem>(this.SelectPodcastAsync, (item) => item is not null, this.ErrorHandler);
         }
 
         /// <summary>
-        /// Gets the list of podcasts.
+        /// Gets the SelectPodcastCommand Command.
         /// </summary>
-        public ObservableCollection<PodcastShowItem> Shows { get; } = new ObservableCollection<PodcastShowItem>();
+        public AsyncCommand<PodcastShowItem> SelectPodcastCommand { get; private set; }
 
         /// <summary>
-        /// Gets the SelectPodcastEpisodeCommand Command.
+        /// Gets or sets the selected podcast.
         /// </summary>
-        public AsyncCommand<PodcastEpisodeItem> SelectPodcastEpisodeCommand { get; private set; }
+        public PodcastShowItem? Podcast
+        {
+            get { return this.podcast; }
+            set { this.SetProperty(ref this.podcast, value); }
+        }
 
         private void Library_RemoveMediaItem(object? sender, DrasticMedia.Core.Library.RemoveMediaItemEventArgs e)
         {
-            if (e.MediaItem is PodcastShowItem item)
-            {
-                this.Shows.Remove(item);
-            }
         }
 
         private void Library_NewMediaItemError(object? sender, DrasticMedia.Core.Library.NewMediaItemErrorEventArgs e)
@@ -50,25 +53,17 @@ namespace Drastic.DotNetPodcasts
 
         private void Library_UpdateMediaItemAdded(object? sender, DrasticMedia.Core.Library.UpdateMediaItemEventArgs e)
         {
-            if (e.MediaItem is PodcastShowItem item)
-            {
-                var pod = this.Shows.FirstOrDefault(n => n.Id == item.Id);
-                if (pod is null)
-                {
-                    return;
-                }
-
-                this.Shows.Insert(this.Shows.IndexOf(pod), item);
-                this.Shows.Remove(pod);
-            }
         }
 
         private void Library_NewMediaItemAdded(object? sender, DrasticMedia.Core.Library.NewMediaItemEventArgs e)
         {
-            if (e.MediaItem is PodcastShowItem item)
-            {
-                this.Shows.Add(item);
-            }
+        }
+
+        private Task SelectPodcastAsync(PodcastShowItem item)
+        {
+            ArgumentNullException.ThrowIfNull(item);
+            this.Podcast = item;
+            return Task.CompletedTask;
         }
     }
 }
