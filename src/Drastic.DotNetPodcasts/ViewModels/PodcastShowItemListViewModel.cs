@@ -23,6 +23,7 @@ namespace Drastic.DotNetPodcasts
             this.Library.UpdateMediaItemAdded += this.Library_UpdateMediaItemAdded;
             this.Library.NewMediaItemError += this.Library_NewMediaItemError;
             this.Library.RemoveMediaItem += this.Library_RemoveMediaItem;
+            this.SelectPodcastShowCommand = new AsyncCommand<PodcastShowItem>(this.SelectPodcastShow, null, this.ErrorHandler);
         }
 
         /// <summary>
@@ -31,9 +32,28 @@ namespace Drastic.DotNetPodcasts
         public ObservableCollection<PodcastShowItem> Shows { get; } = new ObservableCollection<PodcastShowItem>();
 
         /// <summary>
-        /// Gets the SelectPodcastEpisodeCommand Command.
+        /// Gets the SelectPodcastShowCommand Command.
         /// </summary>
-        public AsyncCommand<PodcastEpisodeItem> SelectPodcastEpisodeCommand { get; private set; }
+        public AsyncCommand<PodcastShowItem> SelectPodcastShowCommand { get; private set; }
+
+        /// <inheritdoc/>
+        public override async Task OnLoad()
+        {
+            await base.OnLoad();
+            var shows = await this.Library.FetchPodcastsAsync();
+            foreach (var show in shows)
+            {
+                this.Shows.Add(show);
+            }
+
+            if (!shows.Any())
+            {
+                foreach (var item in DebugHelpers.DefaultPodcasts)
+                {
+                    await this.AddOrUpdatePodcastFromUriCommand.ExecuteAsync(new Uri(item));
+                }
+            }
+        }
 
         private void Library_RemoveMediaItem(object? sender, DrasticMedia.Core.Library.RemoveMediaItemEventArgs e)
         {
@@ -67,8 +87,14 @@ namespace Drastic.DotNetPodcasts
         {
             if (e.MediaItem is PodcastShowItem item)
             {
-                this.Shows.Add(item);
+                this.Dispatcher.Dispatch(() => this.Shows.Add(item));
             }
+        }
+
+        private Task SelectPodcastShow(PodcastShowItem item)
+        {
+            this.Navigate(PageTypes.PodcastShow, item);
+            return Task.CompletedTask;
         }
     }
 }

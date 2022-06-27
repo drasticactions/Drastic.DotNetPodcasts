@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drastic.DotNetPodcasts.Test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrasticMedia.LiteDB.Database", "..\external\DrasticMedia\src\DrasticMedia.LiteDB.Database\DrasticMedia.LiteDB.Database.csproj", "{6FF2E298-5EA7-4F1B-B1DA-E81B568C28E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drastic.DotNetPodcasts.WinUI", "Drastic.DotNetPodcasts.WinUI\Drastic.DotNetPodcasts.WinUI.csproj", "{9D27535F-6379-497D-B2FD-58D4F040DCAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drastic.DotNetPodcasts.WinUI", "Drastic.DotNetPodcasts.WinUI\Drastic.DotNetPodcasts.WinUI.csproj", "{9D27535F-6379-497D-B2FD-58D4F040DCAD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrasticMedia.Native", "..\..\DrasticMedia\src\DrasticMedia.Native\DrasticMedia.Native.csproj", "{86C79752-A595-4BA5-B6D6-20B425DEC5D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -133,6 +135,22 @@ Global
 		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Release|x86.ActiveCfg = Release|x86
 		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Release|x86.Build.0 = Release|x86
 		{9D27535F-6379-497D-B2FD-58D4F040DCAD}.Release|x86.Deploy.0 = Release|x86
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6}.Debug|arm64.Build.0 = Debug|Any CPU
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6}.Debug|x64.Build.0 = Debug|Any CPU
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6}.Debug|x86.Build.0 = Debug|Any CPU
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6}.Release|arm64.ActiveCfg = Release|Any CPU
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6}.Release|arm64.Build.0 = Release|Any CPU
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6}.Release|x64.ActiveCfg = Release|Any CPU
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6}.Release|x64.Build.0 = Release|Any CPU
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6}.Release|x86.ActiveCfg = Release|Any CPU
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,6 +159,7 @@ Global
 		{571B29EF-5AD6-4B97-86FD-7E255C637240} = {3359D0EF-30A9-421F-A8D2-24516CB44894}
 		{3ECFB8F3-4CA1-4B7C-A736-1A670DBA52A5} = {3359D0EF-30A9-421F-A8D2-24516CB44894}
 		{6FF2E298-5EA7-4F1B-B1DA-E81B568C28E0} = {3359D0EF-30A9-421F-A8D2-24516CB44894}
+		{86C79752-A595-4BA5-B6D6-20B425DEC5D6} = {3359D0EF-30A9-421F-A8D2-24516CB44894}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B09DA72-813E-4316-8284-8534B1C8915E}

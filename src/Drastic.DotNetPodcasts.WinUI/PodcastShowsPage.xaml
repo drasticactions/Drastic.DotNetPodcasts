@@ -1,0 +1,23 @@
+﻿<Page 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:podcast="using:DrasticMedia.Core.Model"
+             mc:Ignorable="d"
+             x:Class="Drastic.DotNetPodcasts.WinUI.PodcastShowsPage">
+    <GridView x:Name="PodcastShowGrid" ItemClick="PodcastShowGrid_ItemClick" IsItemClickEnabled="True" ItemsSource="{x:Bind PodcastShowItemListViewModel.Shows}">
+        <GridView.ItemContainerStyle>
+            <Style TargetType="GridViewItem">
+                <Setter Property="Margin" Value="10"/>
+            </Style>
+        </GridView.ItemContainerStyle>
+        <GridView.ItemTemplate>
+            <DataTemplate x:DataType="podcast:PodcastShowItem">
+                <Image Stretch="UniformToFill" Source="{Binding Image}"
+                       Width="190"
+                       Height="190"/>
+            </DataTemplate>
+        </GridView.ItemTemplate>
+    </GridView>
+</Page>

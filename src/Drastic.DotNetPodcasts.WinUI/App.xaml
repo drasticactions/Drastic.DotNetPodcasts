@@ -10,6 +10,10 @@
                 <!-- Other merged dictionaries here -->
             </ResourceDictionary.MergedDictionaries>
             <!-- Other app resources here -->
+
+            <local:MillisecondsStringConverter x:Key="MillisecondsStringConverter"/>
+            <local:PositionToFixedPointConverter x:Key="PositionToFixedPointConverter"/>
+            <local:PositionToTimeStampStringConverter x:Key="PositionToTimeStampStringConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

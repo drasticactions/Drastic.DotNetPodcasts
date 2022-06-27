@@ -2,6 +2,7 @@
 // Copyright (c) Drastic Actions. All rights reserved.
 // </copyright>
 
+using Drastic.DotNetPodcasts.ViewModels;
 using DrasticMedia.Core.Database;
 using DrasticMedia.Core.Library;
 using DrasticMedia.Core.Platform;
@@ -38,9 +39,11 @@ namespace Drastic.DotNetPodcasts.WinUI
                 .AddSingleton<IPodcastService, PodcastService>()
                 .AddSingleton<IPodcastDatabase, PodcastDatabase>()
                 .AddSingleton<IPodcastLibrary, PodcastLibrary>()
+                .AddSingleton<IMediaService, NativeMediaService>()
                 .AddTransient<PodcastShowItemListViewModel>()
                 .AddTransient<PodcastShowItemViewModel>()
                 .AddTransient<PodcastEpisodeItemViewModel>()
+                .AddTransient<PodcastPlayerViewModel>()
                 .BuildServiceProvider());
         }
 

@@ -5,6 +5,8 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using DrasticMedia.Core.Library;
+using DrasticMedia.Core.Model;
+using DrasticMedia.Core.Services;
 using DrasticMedia.Podcast.Library;
 
 namespace Drastic.DotNetPodcasts
@@ -14,6 +16,7 @@ namespace Drastic.DotNetPodcasts
     /// </summary>
     public class BaseViewModel : INotifyPropertyChanged
     {
+        private IMediaService mediaService;
         private bool isBusy;
         private string title = string.Empty;
 
@@ -28,11 +31,19 @@ namespace Drastic.DotNetPodcasts
             this.ErrorHandler = services.GetService(typeof(IErrorHandlerService)) as IErrorHandlerService ?? throw new NullReferenceException(nameof(IErrorHandlerService));
             this.Dispatcher = services.GetService(typeof(IAppDispatcher)) as IAppDispatcher ?? throw new NullReferenceException(nameof(IAppDispatcher));
             this.Library = services.GetService(typeof(IPodcastLibrary)) as IPodcastLibrary ?? throw new NullReferenceException(nameof(IPodcastLibrary));
+            this.mediaService = services.GetService(typeof(IMediaService)) as IMediaService ?? throw new NullReferenceException(nameof(IMediaService));
             this.AddOrUpdatePodcastFromUriCommand = new AsyncCommand<Uri>(this.Library.AddOrUpdatePodcastFromUri, this.IsValidUri, this.ErrorHandler);
         }
 
         /// <inheritdoc/>
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        public event EventHandler<NavigationEventArgs>? OnNavigationRaised;
+
+        /// <summary>
+        /// Gets the media service.
+        /// </summary>
+        public IMediaService MediaService => this.mediaService;
 
         /// <summary>
         /// Gets or sets a value indicating whether the VM is busy.
@@ -75,7 +86,7 @@ namespace Drastic.DotNetPodcasts
         /// <summary>
         /// Gets the Error Handler.
         /// </summary>
-        internal IErrorHandlerService ErrorHandler { get; }
+        public IErrorHandlerService ErrorHandler { get; }
 
         /// <summary>
         /// Called on VM Load.
@@ -91,6 +102,25 @@ namespace Drastic.DotNetPodcasts
         /// </summary>
         public virtual void RaiseCanExecuteChanged()
         {
+            this.OnPropertyChanged(nameof(this.MediaService));
+            this.OnPropertyChanged("MediaService.CurrentMedia");
+        }
+
+        public async Task PlayPodcastEpisodeAsync(PodcastEpisodeItem item, bool autoPlay = false)
+        {
+            ArgumentNullException.ThrowIfNull(item);
+            this.MediaService.CurrentMedia = item;
+            if (autoPlay)
+            {
+                await this.mediaService.PlayAsync();
+            }
+
+            this.OnPropertyChanged(nameof(this.MediaService));
+        }
+
+        internal void Navigate(PageTypes page, object parameter)
+        {
+            this.OnNavigationRaised?.Invoke(this, new NavigationEventArgs(page, parameter));
         }
 
 #pragma warning disable SA1600 // Elements should be documented

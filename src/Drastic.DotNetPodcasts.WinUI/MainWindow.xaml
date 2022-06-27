@@ -1,13 +1,75 @@
-﻿<Window
+﻿<winex:WindowEx 
+    xmlns:winex="using:WinUIEx"
     x:Class="Drastic.DotNetPodcasts.WinUI.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Drastic.DotNetPodcasts.WinUI"
+    xmlns:podcast="using:DrasticMedia.Core.Model"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <winex:WindowEx.Backdrop>
+        <winex:MicaSystemBackdrop />
+    </winex:WindowEx.Backdrop>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Height="34">
+            <Button Style="{StaticResource NavigationBackButtonNormalStyle}"
+                    x:Name="BackButton"
+                    Grid.Column="1"
+                    Click="BackButton_Click"
+                    ToolTipService.ToolTip="Back" />
+            <Grid x:Name="AppTitleBar" >
+                <TextBlock Margin="12,0,0,0" x:Name="AppTitleTextBlock" Text="Drastic.DotNetPodcasts"
+                       Style="{StaticResource CaptionTextBlockStyle}"
+                       VerticalAlignment="Center" />
+            </Grid>
+        </StackPanel>
+        <Grid DataContext="{x:Bind PlayerViewModel}" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="115"/>
+            </Grid.RowDefinitions>
+            <Frame x:Name="NavigationFrame"/>
+            <Grid Grid.Row="1" Background="{ThemeResource LayerOnAcrylicFillColorDefault}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Margin="15,0,15,0" VerticalAlignment="Center" Text="{Binding MediaService.CurrentPosition, Mode=TwoWay, Converter={StaticResource MillisecondsStringConverter}}"/>
+                    <local:KibouSlider Grid.Column="1" Value="{Binding MediaService.CurrentPosition, Mode=TwoWay, Converter={StaticResource PositionToFixedPointConverter}}" Maximum="500">
+                        <local:KibouSlider.ThumbToolTipValueConverter>
+                            <local:PositionToTimeStampStringConverter DurationValue="{Binding MediaService.CurrentMedia.Duration.TotalMilliseconds, Mode=TwoWay}" />
+                        </local:KibouSlider.ThumbToolTipValueConverter>
+                    </local:KibouSlider>
+                    <TextBlock Grid.Column="2" Margin="15,0,15,0" VerticalAlignment="Center" Text="{Binding MediaService.CurrentMedia.Duration.TotalMilliseconds, Mode=TwoWay, Converter={StaticResource MillisecondsStringConverter}}"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
-    </StackPanel>
-</Window>
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Button BorderBrush="Transparent"
+                                Background="Transparent"
+                                FontSize="40"
+                                ToolTipService.ToolTip="Play"
+                                FontFamily="Segoe Fluent Icons"
+                                Content="" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</winex:WindowEx>
