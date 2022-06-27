@@ -10,7 +10,7 @@
     <ListView x:Name="EpisodeList"
               ItemClick="EpisodeList_ItemClick"
               IsItemClickEnabled="True"
-              ItemsSource="{x:Bind PodcastShowItemViewModel.Podcast.Episodes}">
+              ItemsSource="{x:Bind PodcastShowItemViewModel.Podcast.Episodes, Mode=OneWay}">
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="podcast:PodcastEpisodeItem">
                 <StackPanel>
